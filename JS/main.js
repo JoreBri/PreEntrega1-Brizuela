@@ -61,9 +61,9 @@ do {
         if (servicio === 1) {
             alert( "Usted quiere realizarse Esmaltado Semipermanente liso por $" + precioEsmaltadoSemiLiso)
           }
-          else (servicio === 2);{{
+          else (servicio === 2);{
             alert( "Usted quiere realizarse Esmaltado Semipermanente con diseño por $" + precioEsmaltadoSemiDiseño)
-          }}
+          }
       case 3:
         servicio = parseInt(prompt("Elija si quiere \n1. Capping liso \n2.Capping con deseño"));
         if (isNaN(servicio)) {
@@ -79,19 +79,28 @@ do {
         if (servicio === 1) {
             alert( "Usted quiere realizarse Capping liso por $" + precioCappingLiso)
           }
-          else (servicio === 2);{{
+          else (servicio === 2);{
             alert( "Usted quiere realizarse Capping con diseño por $" + precioCappingdiseño)
-          }}
+          }
         break;
       case 4:
         servicio = parseInt(prompt("Elija si quiere \n1. Esculpidas lisas \n2.Esculpidas con deseño"));
-        
+        if (isNaN(servicio)) {
+          alert("Opcion invalida. Por favor seleccione una opcion entre 1 y 2 para un servicio a realizarse y 0 para salir");
+          continue;
+        } else {
+          servicio = parseInt(servicio);
+          if ((servicio < 0) || (servicio > 4)) {
+            alert("Opcion invalida. Por favor seleccione una opcion entre 1 y 2 para un servicio a realizarse y 0 para salir");
+            continue;
+          }
+        }
         if (servicio === 1) {
             alert( "Usted quiere realizarse Esculpidas lisas por $" + precioEsculpidasLisas)
           }
-          else (servicio === 2);{{
+          else (servicio === 2);{
             alert( "Usted quiere realizarse Esculpidas con diseño por $" + precioEsclpidasDiseño)
-          }}
+          }
       case 0:
         alert("Saliendo...");
         break;
@@ -99,5 +108,4 @@ do {
         alert("Opción inválida. Por favor, seleccione nuevamente.");
     }
   } while (opcion !== 0);
-
   alert("Gracias por elegirnos. Vuelva pronto.");
