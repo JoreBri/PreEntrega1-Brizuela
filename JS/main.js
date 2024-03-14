@@ -25,7 +25,7 @@ function saludar () {
 saludar ();
 //Le damos las opciones al cliente
 do {
-    servicio = prompt("Ingrese el número de la opción que desea realizarce: \n1. Manicura Rusa \n2. Esmaltado semipermanente \n3. Capping \n4. Esculpidas \n0. Salir");
+    servicio = prompt("Ingrese el número de la opción que desea realizarse: \n1. Manicura Rusa \n2. Esmaltado semipermanente \n3. Capping \n4. Esculpidas \n0. Salir");
     switch(servicio) {
       //Caso 1 elije manicura Rusa y se le pasa el precio  
       case '1':
@@ -100,7 +100,7 @@ do {
     }
     //Le pasamos las opciones del carrito
     if (seguirComprando && servicio >= '1' && servicio <= '4') {
-        let irAlCarrito = confirm("Desea ir al carrito? Presione Aceptar para ir al carrito, o Cancelar para seguir eligiento");
+        let irAlCarrito = confirm("Desea ir al carrito? Presione Aceptar para ir al carrito, o Cancelar para seguir eligiendo");
         if (irAlCarrito) {
             let comprarCarrito = confirm("Desea comprar su carrito? \n" + carrito.join(", ")  + " Presione Aceptar para confirmar, o Cancelar para seguir eligiendo");
             if (comprarCarrito) {
