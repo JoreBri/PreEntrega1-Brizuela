@@ -96,7 +96,7 @@ do {
     if (seguirComprando && servicio >= '1' && servicio <= '4') {
         let irAlCarrito = confirm("Desea ir al carrito? Presione Aceptar para confirmar, o Cancelar para rechazar");
         if (irAlCarrito) {
-            let comprarCarrito = confirm("Desea comprar su carrito? \n" + carrito.join(", ") + "Presione Aceptar para confirmar, o Cancelar para seguir eligiendo");
+            let comprarCarrito = confirm("Desea comprar su carrito? \n" + carrito.join(", ")  + " Presione Aceptar para confirmar, o Cancelar para seguir eligiendo");
             if (comprarCarrito) {
                 alert("El total de su compra es: $" + total.toFixed(2)  +  " Muchas gracias por su compra");
                 seguirComprando = false;
