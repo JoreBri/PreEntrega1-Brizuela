@@ -14,7 +14,7 @@ let carrito = [];
 //Primer funcion
 function saludar () {
     let nombreIngresado = prompt("Hola! Por favor, Ingrese su nombre");
-    while (nombreIngresado == null || !(nombreIngresado.length >= 3) || (nombreIngresado == (isNaN) )) {
+    while (nombreIngresado == null || !(nombreIngresado.length >= 3)) {
             nombreIngresado = prompt("Por favor, ingrese un nombre,para brindarle la mejor atención!");
         }
         // Si el usuario introduce un nombre, se guarda en la variable nombreIngrasado
@@ -37,7 +37,9 @@ do {
             break;
       //Caso 2 elije tipo de esmaltado semi y luego se le informa el precio
         case '2':
-            let tipoEsmaltado = prompt("Elija si quiere \n1. Esmaltado semipermanente liso \n2. Esmaltado semipermanente con diseño");
+          do {
+            tipoEsmaltado = prompt("Elija si quiere \n1. Esmaltado semipermanente liso \n2. Esmaltado semipermanente con diseño");
+        } while (tipoEsmaltado !== '1' && tipoEsmaltado !== '2');
             if (tipoEsmaltado == '1') {
                 let confirmarCompra2 = confirm("Usted quiere realizarse Esmaltado Semipermanente liso por $" + precioEsmaltadoSemiLiso + ". Presione Aceptar para confirmar, o Cancelar para rechazar.");
                 if (confirmarCompra2) {
@@ -54,7 +56,9 @@ do {
             break;
       //Caso 3 elije tipo de Cappong y luego se le informa el precio
         case '3':
-            let tipoCapping = prompt("Elija si quiere \n1. Capping liso \n2.Capping con diseño");
+          do {
+            tipoCapping = prompt("Elija si quiere \n1. Esmaltado semipermanente liso \n2. Esmaltado semipermanente con diseño");
+        } while (tipoCapping !== '1' && tipoCapping !== '2');
             if (tipoCapping == '1') {
                 let confirmarCompra4 = confirm("Usted quiere realizarse Capping liso por $" + precioCappingLiso + ". Presione Aceptar para confirmar, o Cancelar para rechazar.");
                 if (confirmarCompra4) {
@@ -71,7 +75,9 @@ do {
             break;
       //Caso 4 elije el tipo de esculpidas y luego se le informa el precio
         case '4':
-            let tipoEsculpidas = prompt("Elija si quiere \n1. Esculpidas lisas \n2. Esculpidas con diseño");
+          do {
+            tipoEsculpidas = prompt("Elija si quiere \n1. Esmaltado semipermanente liso \n2. Esmaltado semipermanente con diseño");
+        } while (tipoEsculpidas !== '1' && tipoEsculpidas !== '2');
             if (tipoEsculpidas == '1') {
                 let confirmarCompra6 = confirm("Usted quiere realizarse Esculpidas lisas por $" + precioEsculpidasLisas + ". Presione Aceptar para confirmar, o Cancelar para rechazar.");
                 if (confirmarCompra6) {
@@ -94,7 +100,7 @@ do {
     }
     //Le pasamos las opciones del carrito
     if (seguirComprando && servicio >= '1' && servicio <= '4') {
-        let irAlCarrito = confirm("Desea ir al carrito? Presione Aceptar para confirmar, o Cancelar para rechazar");
+        let irAlCarrito = confirm("Desea ir al carrito? Presione Aceptar para ir al carrito, o Cancelar para seguir eligiento");
         if (irAlCarrito) {
             let comprarCarrito = confirm("Desea comprar su carrito? \n" + carrito.join(", ")  + " Presione Aceptar para confirmar, o Cancelar para seguir eligiendo");
             if (comprarCarrito) {
