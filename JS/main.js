@@ -25,7 +25,7 @@ function saludar () {
 saludar ();
 //Le damos las opciones al cliente
 do {
-    servicio = prompt("Ingrese el número de la opción que desea realizarce: \n1.Manicura Rusa \n2. Esmaltado semipermanente \n3. Capping \n4.Esculpidas \n0. Salir");
+    servicio = prompt("Ingrese el número de la opción que desea realizarce: \n1. Manicura Rusa \n2. Esmaltado semipermanente \n3. Capping \n4  Esculpidas \n0. Salir");
     switch(servicio) {
       //Caso 1 elije manicura Rusa y se le pasa el precio  
       case '1':
