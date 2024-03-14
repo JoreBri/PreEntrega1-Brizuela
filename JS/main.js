@@ -4,7 +4,7 @@ let precioManicuraRusa = 5000;
 let precioEsmaltadoSemiLiso = 8500;
 let precioEsmaltadoSemiDiseño = 10000;
 let precioCappingLiso = 9500;
-let precioCappingdiseño = 10500;
+let precioCappingDiseño = 10500;
 let precioEsculpidasLisas = 11000;
 let precioEsclpidasDiseño = 12500;
 let total = 0;
@@ -62,10 +62,10 @@ do {
                     carrito.push("Capping liso por $" + precioCappingLiso);
                 }
             } else if (tipoCapping == '2') {
-                let confirmarCompra5 = confirm("Usted quiere realizarse Capping con diseño por $" + precioCappingdiseño + ". Presione Aceptar para confirmar, o Cancelar para rechazar.");
+                let confirmarCompra5 = confirm("Usted quiere realizarse Capping con diseño por $" + precioCappingDiseño + ". Presione Aceptar para confirmar, o Cancelar para rechazar.");
                 if (confirmarCompra5) {
-                    total += precioCappingdiseño;
-                    carrito.push("Capping con diseño por $" + precioCappingdiseño);
+                    total += precioCappingDiseño;
+                    carrito.push("Capping con diseño por $" + precioCappingDiseño);
                 }
             }
             break;
