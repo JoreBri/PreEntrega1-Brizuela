@@ -8,104 +8,103 @@ let precioCappingdiseño = 10500;
 let precioEsculpidasLisas = 11000;
 let precioEsclpidasDiseño = 12500;
 let total = 0;
-let salirDeLaWeb = true;
-//POR FAVOR SEBA AYUDAME ;(
+let seguirComprando = true;
+let carrito = [];
 
-// Al entrar la página, se muestra un prompt que pide el nombre del cliente
-let nombreIngresado = prompt("Ingrese su nombre");
+//Primer funcion
+function saludar () {
+    let nombreIngresado = prompt("Hola! Por favor, Ingrese su nombre");
+    while (nombreIngresado == null || !(nombreIngresado.length >= 3) || (nombreIngresado == (isNaN) )) {
+            nombreIngresado = prompt("Por favor, ingrese un nombre,para brindarle la mejor atención!");
+        }
+        // Si el usuario introduce un nombre, se guarda en la variable nombreIngrasado
+        // Si el usuario cancela el prompt, la variable nombreIngresado es null
+    return alert("Bienvenido " + nombreIngresado + " a ¡Unicornio Nails!");
+}
 
-while (nombreIngresado == null || !(nombreIngresado.length >= 3)) {
-    nombreIngresado = prompt("Por favor, ingrese un nombre,para brindarle la mejor atención!");
- }
- // Si el usuario introduce un nombre, se guarda en la variable nombreIngrasado
-// Si el usuario cancela el prompt, la variable nombreIngresado es null
-
-//Al ingresar el nombre se saluda al cliente y se le informa lo que debe hacer
-alert("Bienvenido " + nombreIngresado +  " a ¡Unicornio Nails!");
-
-alert("¡A continuación podrás elegir el servicio que quieras realizarte!");
-
-//Comenzamos a elegir los servicios
-//Primero ofrecemos las 4 opciones
+saludar ();
+//Le damos las opciones al cliente
 do {
-    servicio = prompt("Ingrese el número de la opción que desea realizarce: \n1.Manicura Rusa\n2. Esmaltado semipermanente \n3. Capping \n4.Esculpidas \n0. Salir");
-//Nos aseguramos de que elija una opcion valida 
-    if (isNaN(servicio)) {
-      alert("Opcion invalida. Por favor seleccione una opcion entre 1 y 4 para un servicio a realizarse y 0 para salir");
-      continue;
-    } else {
-      servicio = parseInt(servicio);
-      if ((servicio < 0) || (servicio > 4)) {
-        alert("Opcion invalida. Por favor seleccione una opcion entre 1 y 4 para un servicio a realizarse y 0 para salir");
-        continue;
-      }
+    servicio = prompt("Ingrese el número de la opción que desea realizarce: \n1.Manicura Rusa \n2. Esmaltado semipermanente \n3. Capping \n4.Esculpidas \n0. Salir");
+    switch(servicio) {
+      //Caso 1 elije manicura Rusa y se le pasa el precio  
+      case '1':
+            let confirmarCompra1 = confirm("Usted quiere realizarse Manicura Rusa por $" + precioManicuraRusa + ". Presione Aceptar para confirmar, o Cancelar para rechazar.");
+            if (confirmarCompra1) {
+                total += precioManicuraRusa;
+                carrito.push("Manicura Rusa por $" + precioManicuraRusa);
+            }
+            break;
+      //Caso 2 elije tipo de esmaltado semi y luego se le informa el precio
+        case '2':
+            let tipoEsmaltado = prompt("Elija si quiere \n1. Esmaltado semipermanente liso \n2. Esmaltado semipermanente con diseño");
+            if (tipoEsmaltado == '1') {
+                let confirmarCompra2 = confirm("Usted quiere realizarse Esmaltado Semipermanente liso por $" + precioEsmaltadoSemiLiso + ". Presione Aceptar para confirmar, o Cancelar para rechazar.");
+                if (confirmarCompra2) {
+                    total += precioEsmaltadoSemiLiso;
+                    carrito.push("Esmaltado Semipermanente liso por $" + precioEsmaltadoSemiLiso);
+                }
+            } else if (tipoEsmaltado == '2') {
+                let confirmarCompra3 = confirm("Usted quiere realizarse Esmaltado Semipermanente con diseño por $" + precioEsmaltadoSemiDiseño + ". Presione Aceptar para confirmar, o Cancelar para rechazar.");
+                if (confirmarCompra3) {
+                    total += precioEsmaltadoSemiDiseño;
+                    carrito.push("Esmaltado Semipermanente con diseño por $" + precioEsmaltadoSemiDiseño);
+                }
+            }
+            break;
+      //Caso 3 elije tipo de Cappong y luego se le informa el precio
+        case '3':
+            let tipoCapping = prompt("Elija si quiere \n1. Capping liso \n2.Capping con diseño");
+            if (tipoCapping == '1') {
+                let confirmarCompra4 = confirm("Usted quiere realizarse Capping liso por $" + precioCappingLiso + ". Presione Aceptar para confirmar, o Cancelar para rechazar.");
+                if (confirmarCompra4) {
+                    total += precioCappingLiso;
+                    carrito.push("Capping liso por $" + precioCappingLiso);
+                }
+            } else if (tipoCapping == '2') {
+                let confirmarCompra5 = confirm("Usted quiere realizarse Capping con diseño por $" + precioCappingdiseño + ". Presione Aceptar para confirmar, o Cancelar para rechazar.");
+                if (confirmarCompra5) {
+                    total += precioCappingdiseño;
+                    carrito.push("Capping con diseño por $" + precioCappingdiseño);
+                }
+            }
+            break;
+      //Caso 4 elije el tipo de esculpidas y luego se le informa el precio
+        case '4':
+            let tipoEsculpidas = prompt("Elija si quiere \n1. Esculpidas lisas \n2. Esculpidas con diseño");
+            if (tipoEsculpidas == '1') {
+                let confirmarCompra6 = confirm("Usted quiere realizarse Esculpidas lisas por $" + precioEsculpidasLisas + ". Presione Aceptar para confirmar, o Cancelar para rechazar.");
+                if (confirmarCompra6) {
+                    total += precioEsculpidasLisas;
+                    carrito.push("Esculpidas lisas por $" + precioEsculpidasLisas);
+                }
+            } else if (tipoEsculpidas == '2') {
+                let confirmarCompra7 = confirm("Usted quiere realizarse Esculpidas con diseño por $" + precioEsclpidasDiseño + ".Presione Aceptar para confirmar, o Cancelar para rechazar");
+                if (confirmarCompra7) {
+                    total += precioEsclpidasDiseño;
+                    carrito.push("Esculpidas con diseño por $" + precioEsclpidasDiseño);
+                }
+            }
+            break;
+        case '0':
+            seguirComprando = false;
+            break;
+        default:
+            alert("Opcion invalida. Por favor seleccione una opcion entre 1 y 4 para un servicio a realizarse y 0 para salir");
     }
-//Si elije 1 le pasamos el precio
-    switch (servicio) {
-      case 1:
-        alert("Usted quiere realizarse Manicura Rusa por $" + precioManicuraRusa);
-        break;
-//Si elije 2, 3 0 4 le damos opciones
-      case 2:
-        servicio = parseInt(prompt("Elija si quiere \n1. esmaltado liso \n2.esmaltado con deseño"));
-        if (isNaN(servicio)) {
-          alert("Opcion invalida. Por favor seleccione una opcion entre 1 y 2 para un servicio a realizarse y 0 para salir");
-          continue;
+    //Le pasamos las opciones del carrito
+    if (seguirComprando && servicio >= '1' && servicio <= '4') {
+        let irAlCarrito = confirm("Desea ir al carrito? Presione Aceptar para confirmar, o Cancelar para rechazar");
+        if (irAlCarrito) {
+            let comprarCarrito = confirm("Desea comprar su carrito? \n" + carrito.join(", ") + "Presione Aceptar para confirmar, o Cancelar para seguir eligiendo");
+            if (comprarCarrito) {
+                alert("El total de su compra es: $" + total.toFixed(2)  +  " Muchas gracias por su compra");
+                seguirComprando = false;
+            } else {
+                seguirComprando = confirm("Desea adquirir otro servicio mas? Presione Aceptar para ver su carrito, o Cancelar para seguir eligiendo");
+            }
         } else {
-          servicio = parseInt(servicio);
-          if ((servicio < 0) || (servicio > 4)) {
-            alert("Opcion invalida. Por favor seleccione una opcion entre 1 y 2 para un servicio a realizarse y 0 para salir");
-            continue;
-          }
+            seguirComprando = confirm("Desea adquirir otro servicio mas? Presione Aceptar para seguir eligiendo, o Cancelar  para ver su carrito");
         }
-        if (servicio === 1) {
-            alert( "Usted quiere realizarse Esmaltado Semipermanente liso por $" + precioEsmaltadoSemiLiso)
-          }
-          else (servicio === 2);{
-            alert( "Usted quiere realizarse Esmaltado Semipermanente con diseño por $" + precioEsmaltadoSemiDiseño)
-          }
-      case 3:
-        servicio = parseInt(prompt("Elija si quiere \n1. Capping liso \n2.Capping con deseño"));
-        if (isNaN(servicio)) {
-          alert("Opcion invalida. Por favor seleccione una opcion entre 1 y 2 para un servicio a realizarse y 0 para salir");
-          continue;
-        } else {
-          servicio = parseInt(servicio);
-          if ((servicio < 0) || (servicio > 4)) {
-            alert("Opcion invalida. Por favor seleccione una opcion entre 1 y 2 para un servicio a realizarse y 0 para salir");
-            continue;
-          }
-        }
-        if (servicio === 1) {
-            alert( "Usted quiere realizarse Capping liso por $" + precioCappingLiso)
-          }
-          else (servicio === 2);{
-            alert( "Usted quiere realizarse Capping con diseño por $" + precioCappingdiseño)
-          }
-        break;
-      case 4:
-        servicio = parseInt(prompt("Elija si quiere \n1. Esculpidas lisas \n2.Esculpidas con deseño"));
-        if (isNaN(servicio)) {
-          alert("Opcion invalida. Por favor seleccione una opcion entre 1 y 2 para un servicio a realizarse y 0 para salir");
-          continue;
-        } else {
-          servicio = parseInt(servicio);
-          if ((servicio < 0) || (servicio > 4)) {
-            alert("Opcion invalida. Por favor seleccione una opcion entre 1 y 2 para un servicio a realizarse y 0 para salir");
-            continue;
-          }
-        }
-        if (servicio === 1) {
-            alert( "Usted quiere realizarse Esculpidas lisas por $" + precioEsculpidasLisas)
-          }
-          else (servicio === 2);{
-            alert( "Usted quiere realizarse Esculpidas con diseño por $" + precioEsclpidasDiseño)
-          }
-      case 0:
-        alert("Saliendo...");
-        break;
-      default:
-        alert("Opción inválida. Por favor, seleccione nuevamente.");
     }
-  } while (opcion !== 0);
-  alert("Gracias por elegirnos. Vuelva pronto.");
+} while (seguirComprando);
