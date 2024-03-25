@@ -57,7 +57,7 @@ do {
       //Caso 3 elije tipo de Cappong y luego se le informa el precio
         case '3':
           do {
-            tipoCapping = prompt("Elija si quiere \n1. Esmaltado semipermanente liso \n2. Esmaltado semipermanente con diseño");
+            tipoCapping = prompt("Elija si quiere \n1. Capping liso \n2. Capping con diseño");
         } while (tipoCapping !== '1' && tipoCapping !== '2');
             if (tipoCapping == '1') {
                 let confirmarCompra4 = confirm("Usted quiere realizarse Capping liso por $" + precioCappingLiso + ". Presione Aceptar para confirmar, o Cancelar para rechazar.");
@@ -76,7 +76,7 @@ do {
       //Caso 4 elije el tipo de esculpidas y luego se le informa el precio
         case '4':
           do {
-            tipoEsculpidas = prompt("Elija si quiere \n1. Esmaltado semipermanente liso \n2. Esmaltado semipermanente con diseño");
+            tipoEsculpidas = prompt("Elija si quiere \n1. Esculpidas lisas \n2. Esculpidas con diseño");
         } while (tipoEsculpidas !== '1' && tipoEsculpidas !== '2');
             if (tipoEsculpidas == '1') {
                 let confirmarCompra6 = confirm("Usted quiere realizarse Esculpidas lisas por $" + precioEsculpidasLisas + ". Presione Aceptar para confirmar, o Cancelar para rechazar.");
