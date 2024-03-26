@@ -1,12 +1,4 @@
 //Declaro las variables
-let servicio; 
-let precioManicuraRusa = 5000;
-let precioEsmaltadoSemiLiso = 8500;
-let precioEsmaltadoSemiDiseño = 10000;
-let precioCappingLiso = 9500;
-let precioCappingDiseño = 10500;
-let precioEsculpidasLisas = 11000;
-let precioEsclpidasDiseño = 12500;
 let total = 0;
 let seguirComprando = true;
 let carrito = [];
@@ -21,74 +13,95 @@ function saludar () {
         // Si el usuario cancela el prompt, la variable nombreIngresado es null
     return alert("Bienvenido " + nombreIngresado + " a ¡Unicornio Nails!");
 }
-
 saludar ();
+
+
+// Definición de la clase ServicioManicura
+class ServicioManicura {
+    constructor(nombre, precio) {
+        this.nombre = nombre;
+        this.precio = precio;
+    }
+}
+
+// Creación de objetos de servicio de manicura
+let manicuraRusa = new ServicioManicura("Manicura Rusa", 5000);
+let esmaltadoSemiLiso = new ServicioManicura("Esmaltado Semipermanente Liso", 8500);
+let esmaltadoSemiDiseño = new ServicioManicura("Esmaltado Semipermanente con Diseño", 10000);
+let cappingLiso = new ServicioManicura("Capping", 95000);
+let cappingDiseño = new ServicioManicura("Capping con diseño", 10500);
+let esculpidasLisas = new ServicioManicura("Uñas Esculpidas", 11000);
+let esculpidasDiseño = new ServicioManicura ("Uñas Esculpidas con diseño", 12500);
+
+//Generamo el array de Servicios
+let servicios = [manicuraRusa, esmaltadoSemiLiso, esmaltadoSemiDiseño, cappingLiso, cappingDiseño, esculpidasLisas, esculpidasDiseño];
+
 //Le damos las opciones al cliente
 do {
-    servicio = prompt("Ingrese el número de la opción que desea realizarse: \n1. Manicura Rusa \n2. Esmaltado semipermanente \n3. Capping \n4. Esculpidas \n0. Salir");
-    switch(servicio) {
+    let opcionSeleccionada = prompt("Ingrese el número de la opción que desea realizarse: \n1. Manicura Rusa \n2. Esmaltado semipermanente \n3. Capping \n4. Esculpidas \n0. Salir");
+    switch(opcionSeleccionada) {
       //Caso 1 elije manicura Rusa y se le pasa el precio  
-      case '1':
-            let confirmarCompra1 = confirm("Usted quiere realizarse Manicura Rusa por $" + precioManicuraRusa + ". Presione Aceptar para confirmar, o Cancelar para rechazar.");
+        case '1':
+            let confirmarCompra1 = confirm("Usted quiere realizarse  "  + manicuraRusa.nombre + "  por $" + manicuraRusa.precio + ". Presione Aceptar para confirmar, o Cancelar para rechazar.");
             if (confirmarCompra1) {
-                total += precioManicuraRusa;
-                carrito.push("Manicura Rusa por $" + precioManicuraRusa);
+                total += manicuraRusa.precio;
+                carrito.push(  manicuraRusa.nombre + " por $" + manicuraRusa.precio);
             }
             break;
       //Caso 2 elije tipo de esmaltado semi y luego se le informa el precio
         case '2':
-          do {
+    do {
             tipoEsmaltado = prompt("Elija si quiere \n1. Esmaltado semipermanente liso \n2. Esmaltado semipermanente con diseño");
         } while (tipoEsmaltado !== '1' && tipoEsmaltado !== '2');
             if (tipoEsmaltado == '1') {
-                let confirmarCompra2 = confirm("Usted quiere realizarse Esmaltado Semipermanente liso por $" + precioEsmaltadoSemiLiso + ". Presione Aceptar para confirmar, o Cancelar para rechazar.");
+                let confirmarCompra2 = confirm("Usted quiere realizarse " + esmaltadoSemiLiso.nombre + " por $" + esmaltadoSemiLiso.precio + ". Presione Aceptar para confirmar, o Cancelar para rechazar.");
                 if (confirmarCompra2) {
-                    total += precioEsmaltadoSemiLiso;
-                    carrito.push("Esmaltado Semipermanente liso por $" + precioEsmaltadoSemiLiso);
+                    total += esmaltadoSemiLiso.precio;
+                    carrito.push( esmaltadoSemiLiso.nombre + " por $" + esmaltadoSemiLiso.precio);
                 }
             } else if (tipoEsmaltado == '2') {
-                let confirmarCompra3 = confirm("Usted quiere realizarse Esmaltado Semipermanente con diseño por $" + precioEsmaltadoSemiDiseño + ". Presione Aceptar para confirmar, o Cancelar para rechazar.");
+                let confirmarCompra3 = confirm("Usted quiere realizarse " + esmaltadoSemiDiseño.nombre + " por $" + esmaltadoSemiDiseño.precio + ". Presione Aceptar para confirmar, o Cancelar para rechazar.");
                 if (confirmarCompra3) {
-                    total += precioEsmaltadoSemiDiseño;
-                    carrito.push("Esmaltado Semipermanente con diseño por $" + precioEsmaltadoSemiDiseño);
+                    total += esmaltadoSemiDiseño.precio;
+                    carrito.push( esmaltadoSemiDiseño.nombre + " por $" + esmaltadoSemiDiseño.precio);
                 }
             }
             break;
       //Caso 3 elije tipo de Cappong y luego se le informa el precio
         case '3':
-          do {
+    do {
             tipoCapping = prompt("Elija si quiere \n1. Capping liso \n2. Capping con diseño");
         } while (tipoCapping !== '1' && tipoCapping !== '2');
             if (tipoCapping == '1') {
-                let confirmarCompra4 = confirm("Usted quiere realizarse Capping liso por $" + precioCappingLiso + ". Presione Aceptar para confirmar, o Cancelar para rechazar.");
+                let confirmarCompra4 = confirm("Usted quiere realizarse " +  cappingLiso.nombre + " por $" + cappingLiso.precio + ". Presione Aceptar para confirmar, o Cancelar para rechazar.");
                 if (confirmarCompra4) {
-                    total += precioCappingLiso;
-                    carrito.push("Capping liso por $" + precioCappingLiso);
+                    total += cappingLiso.precio;
+                    carrito.push(cappingLiso.nombre + " por $" + cappingLiso.precio);
                 }
             } else if (tipoCapping == '2') {
-                let confirmarCompra5 = confirm("Usted quiere realizarse Capping con diseño por $" + precioCappingDiseño + ". Presione Aceptar para confirmar, o Cancelar para rechazar.");
+                let confirmarCompra5 = confirm("Usted quiere realizarse " + cappingDiseño.nombre + " por $" + cappingDiseño.precio + ". Presione Aceptar para confirmar, o Cancelar para rechazar.");
                 if (confirmarCompra5) {
-                    total += precioCappingDiseño;
-                    carrito.push("Capping con diseño por $" + precioCappingDiseño);
+                    total += cappingDiseño.precio;
+                    carrito.push( cappingDiseño.nombre + " por $" + cappingDiseño.precio);
                 }
             }
             break;
       //Caso 4 elije el tipo de esculpidas y luego se le informa el precio
         case '4':
-          do {
+    do {
             tipoEsculpidas = prompt("Elija si quiere \n1. Esculpidas lisas \n2. Esculpidas con diseño");
         } while (tipoEsculpidas !== '1' && tipoEsculpidas !== '2');
             if (tipoEsculpidas == '1') {
-                let confirmarCompra6 = confirm("Usted quiere realizarse Esculpidas lisas por $" + precioEsculpidasLisas + ". Presione Aceptar para confirmar, o Cancelar para rechazar.");
+                let confirmarCompra6 = confirm("Usted quiere realizarse " + esculpidasLisas.nombre +" por $" + esculpidasLisas.precio + ". Presione Aceptar para confirmar, o Cancelar para rechazar.");
                 if (confirmarCompra6) {
-                    total += precioEsculpidasLisas;
-                    carrito.push("Esculpidas lisas por $" + precioEsculpidasLisas);
+                    total += esculpidasLisas.precio;
+                    carrito.push(esculpidasLisas.nombre + " por $" + esculpidasLisas.precio);
                 }
             } else if (tipoEsculpidas == '2') {
-                let confirmarCompra7 = confirm("Usted quiere realizarse Esculpidas con diseño por $" + precioEsclpidasDiseño + ".Presione Aceptar para confirmar, o Cancelar para rechazar");
+                let confirmarCompra7 = confirm("Usted quiere realizarse " + esculpidasDiseño.nombre +" por $" + esculpidasDiseño.precio + ".Presione Aceptar para confirmar, o Cancelar para rechazar");
                 if (confirmarCompra7) {
-                    total += precioEsclpidasDiseño;
-                    carrito.push("Esculpidas con diseño por $" + precioEsclpidasDiseño);
+                    total += esculpidasDiseño.precio;
+                    carrito.push(esculpidasDiseño.nombre + " por $" + esculpidasDiseño.precio);
                 }
             }
             break;
@@ -99,15 +112,15 @@ do {
             alert("Opcion invalida. Por favor seleccione una opcion entre 1 y 4 para un servicio a realizarse y 0 para salir");
     }
     //Le pasamos las opciones del carrito
-    if (seguirComprando && servicio >= '1' && servicio <= '4') {
+    if (seguirComprando && opcionSeleccionada >= '1' && opcionSeleccionada <= '4') {
         let irAlCarrito = confirm("Desea ir al carrito? Presione Aceptar para ir al carrito, o Cancelar para seguir eligiendo");
         if (irAlCarrito) {
-            let comprarCarrito = confirm("Desea comprar su carrito? \n" + carrito.join(", ")  + " Presione Aceptar para confirmar, o Cancelar para seguir eligiendo");
+            let comprarCarrito = confirm("Desea adquirir el o los servicios seleccionados? \n" + carrito.join(", ")  + " Presione Aceptar para confirmar, o Cancelar para seguir eligiendo.");
             if (comprarCarrito) {
-                alert("El total de su compra es: $" + total.toFixed(2)  +  " Muchas gracias por su compra");
+                alert("El total de su compra es: $" + total.toFixed(2)  +  " Muchas gracias por su compra.");
                 seguirComprando = false;
             } else {
-                seguirComprando = confirm("Desea adquirir otro servicio mas? Presione Aceptar para ver su carrito, o Cancelar para seguir eligiendo");
+                seguirComprando = confirm("Desea adquirir otro servicio mas? Presione Aceptar para ver su carrito, o Cancelar para seguir eligiendo.");
             }
         } else {
             seguirComprando = confirm("Desea adquirir otro servicio mas? Presione Aceptar para seguir eligiendo, o Cancelar  para ver su carrito");
