@@ -2,6 +2,11 @@
 let total = 0;
 let seguirComprando = true;
 let carrito = [];
+
+//Array
+
+let servicios =[ Manicura, Esmaltado, Capping, Esculpidas ]
+
 // Definición de la clase ServicioManicura
 class ServicioManicura {
     constructor(nombre, precio) {
