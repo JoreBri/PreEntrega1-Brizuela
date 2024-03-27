@@ -7,6 +7,6 @@ function saludar () {
         }
         // Si el usuario introduce un nombre, se guarda en la variable nombreIngrasado
         // Si el usuario cancela el prompt, la variable nombreIngresado es null
-    return alert("Bienvenido " + nombreIngresado + " a ¡Unicornio Nails!");
+    return alert("Hola " + nombreIngresado + " te doy la bienvenida a ¡Unicornio Nails!");
 }
 saludar ();
