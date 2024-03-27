@@ -30,3 +30,13 @@
         left: 50%;
         transform: translateX(-50%);
 }
+
+.index__boton{
+    background-color: rgba(255, 143, 171, 1);
+        border: none;
+        padding: 10px;
+        border-radius: 10px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+}
