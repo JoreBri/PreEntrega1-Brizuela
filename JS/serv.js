@@ -5,7 +5,7 @@ let carrito = [];
 
 //Array
 
-let servicios =[ Manicura, Esmaltado, Capping, Esculpidas ]
+let servicios =[ "Manicura", "Esmaltado", "Capping", "Esculpidas"]
 
 // Definición de la clase ServicioManicura
 class ServicioManicura {
@@ -23,6 +23,39 @@ let cappingLiso = new ServicioManicura("Capping", 95000);
 let cappingDiseño = new ServicioManicura("Capping con diseño", 10500);
 let esculpidasLisas = new ServicioManicura("Uñas Esculpidas", 11000);
 let esculpidasDiseño = new ServicioManicura ("Uñas Esculpidas con diseño", 12500);
+
+
+// Método de búsqueda
+function buscarServicio(nombre) {
+    for (let i = 0; i < servicios.length; i++) {
+        if (servicios[i].toLowerCase().includes(nombre.toLowerCase())) {
+            return servicios[i];
+        }
+    }
+    return null; // Retorna null si no se encuentra ningún servicio con el nombre dado
+}
+
+// Utilización del método de búsqueda antes de seleccionar un servicio
+do {
+    let nombreServicio = prompt("Ingrese el nombre del servicio que desea buscar:");
+    let servicioEncontrado = buscarServicio(nombreServicio);
+    
+    if (servicioEncontrado) {
+        // Aquí puedes continuar con el proceso de selección del servicio encontrado
+        let confirmarCompra = confirm("Usted quiere realizarse " + servicioEncontrado + ". Presione Aceptar para confirmar, o Cancelar para rechazar.");
+        if (confirmarCompra) {
+            total += manicuraRusa.precio;
+            carrito.push(  manicuraRusa.nombre + " por $" + manicuraRusa.precio);
+        }
+    } else {
+        alert("No se encontró ningún servicio con ese nombre. Por favor, inténtelo de nuevo.");
+    }
+
+    // Preguntar si desea seguir comprando o ir al carrito
+    // El código aquí puede seguir siendo el mismo que tenías antes
+
+} while (seguirComprando);
+
 
 //Le damos las opciones al cliente
     do {
