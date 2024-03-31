@@ -21,22 +21,19 @@
     flex-direction: column;
 }
 
-.servicios__boton{
-    background-color: rgba(255, 143, 171, 1);
-        border: none;
-        padding: 10px;
-        border-radius: 10px;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
+.botones {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 }
 
-.index__boton{
-    background-color: rgba(255, 143, 171, 1);
-        border: none;
-        padding: 10px;
-        border-radius: 10px;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
+.boton {
+    background-color: rgba(200, 182, 255, 1);
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.boton:hover {
+    background-color: rgba(255, 143, 171, 1); /* Color cuando se pasa el ratón */
 }
