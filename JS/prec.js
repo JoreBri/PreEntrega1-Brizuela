@@ -22,44 +22,48 @@ let ServicioManicura = [
         ]
     }
 ];
+
 function consultarPrecio() {
     let opcionesConsulta = "";
     for (let i = 0; i < ServicioManicura.length; i++) {
         opcionesConsulta += `${i + 1}. ${ServicioManicura[i].nombre}\n`;
     }
 
-    let continuar = true;
-    while (continuar) {
-        let eleccionConsulta = prompt(`Elija el servicio por el cual quiere consultar el precio:\n${opcionesConsulta}`);
-        let indiceConsulta = parseInt(eleccionConsulta);
+    let eleccionConsulta = prompt(`Elija el servicio por el cual quiere consultar el precio:\n${opcionesConsulta}`);
+    let indiceConsulta = parseInt(eleccionConsulta);
 
-        if (!isNaN(indiceConsulta) && indiceConsulta > 0 && indiceConsulta <= ServicioManicura.length) {
-            let servicioConsulta = ServicioManicura[indiceConsulta - 1];
-            if (servicioConsulta.opciones) {
-                mostrarSubopciones(servicioConsulta);
-            } else {
-                alert(`El precio de ${servicioConsulta.nombre} es $${servicioConsulta.precio}.`);
-            }
+    if (!isNaN(indiceConsulta) && indiceConsulta > 0 && indiceConsulta <= ServicioManicura.length) {
+        let servicioConsulta = ServicioManicura[indiceConsulta - 1];
+        if (servicioConsulta.opciones) {
+            mostrarSubopciones(servicioConsulta.opciones);
         } else {
-            alert("Opción inválida.");
+            alert(`El precio de ${servicioConsulta.nombre} es $${servicioConsulta.precio}.`);
         }
-
-        let respuesta = prompt("¿Desea realizar otra consulta? (Sí/No)").toLowerCase();
-        continuar = respuesta === "sí" || respuesta === "si";
+    } else {
+        alert("Opción inválida.");
+    }
+    
+    let respuesta = prompt("¿Desea realizar otra consulta? \n1. Sí\n2. No");
+    if (respuesta === "1"){
+        consultarPrecio();
+    } else if (respuesta === "2") {
+        alert ("Muchas gracias por su consulta.")
+    } else {
+        alert("Opción inválida.");
     }
 }
 
-function mostrarSubopciones(ServicioManicura) {
+function mostrarSubopciones(opciones) {
     let opcionesSubconsulta = "";
-    for (let i = 0; i < ServicioManicura.opciones.length; i++) {
-        opcionesSubconsulta += `${i + 1}. ${ServicioManicura.opciones[i].nombre}\n`;
+    for (let i = 0; i < opciones.length; i++) {
+        opcionesSubconsulta += `${i + 1}. ${opciones[i].nombre}\n`;
     }
 
-    let eleccionSubconsulta = prompt(`Elija una opción para ${ServicioManicura.nombre}:\n${opcionesSubconsulta}`);
+    let eleccionSubconsulta = prompt(`Elija una opción:\n${opcionesSubconsulta}`);
     let indiceSubconsulta = parseInt(eleccionSubconsulta);
 
-    if (!isNaN(indiceSubconsulta) && indiceSubconsulta > 0 && indiceSubconsulta <= ServicioManicura.opciones.length) {
-        let subopcionConsulta = ServicioManicura.opciones[indiceSubconsulta - 1];
+    if (!isNaN(indiceSubconsulta) && indiceSubconsulta > 0 && indiceSubconsulta <= opciones.length) {
+        let subopcionConsulta = opciones[indiceSubconsulta - 1];
         alert(`El precio de ${subopcionConsulta.nombre} es $${subopcionConsulta.precio}.`);
     } else {
         alert("Opción inválida.");
