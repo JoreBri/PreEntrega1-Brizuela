@@ -1,4 +1,4 @@
-.titulo{
+ .titulo{
     background-color:rgba(187, 208, 255, 0.725);
     border-radius: 10px;
     margin: 25px;
@@ -8,18 +8,9 @@
     flex-direction: column;
     flex-wrap: nowrap;
 }
-.img-bgnd {
-    height: 80vh;
-    min-width: 100%;
-    background-image: url("../img/fondo.jpeg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    
+.logo{
+    width: 100px;
+    border-radius: 10px;
 }
 .servicios {
     background-color:rgba(255, 194, 209, 0.593);
@@ -42,7 +33,7 @@
     border: none;
     padding: 10px;
     border-radius: 10px;
-}
+} 
 
 .boton:hover {
     background-color: rgba(255, 143, 171, 1); /* Color cuando se pasa el ratón */
